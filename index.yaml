@@ -3,6 +3,16 @@ entries:
   my-app:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2025-04-08T16:51:43.338653244Z"
+    description: A Helm chart for Kubernetes
+    digest: e359b9ac732e15fc07bb2cc066e00f8fa002dc535148f35faa1f800267552612
+    name: my-app
+    type: application
+    urls:
+    - https://github.com/sturman/charts/releases/download/my-app-0.1.2/my-app-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2025-04-08T16:49:40.123414226Z"
     description: A Helm chart for Kubernetes
     digest: 7de4b7df81640d04e180600ff68c58ccb7a81b4fbb3e8677ee1bb06cdab524e0
@@ -32,4 +42,4 @@ entries:
     urls:
     - https://github.com/sturman/charts/releases/download/your-app-0.1.0/your-app-0.1.0.tgz
     version: 0.1.0
-generated: "2025-04-08T16:50:14.91248948Z"
+generated: "2025-04-08T16:51:43.338664495Z"
