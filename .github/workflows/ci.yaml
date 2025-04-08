@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  ci:
+  test:
     permissions:
       contents: write
     runs-on: ubuntu-24.04
@@ -16,17 +16,15 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Get changed files
+      - name: Get changed files in 'charts' dir
         id: changed-charts-files
         uses: tj-actions/changed-files@v46
         with:
           files: "charts/**"
 
-      - name: List all modified files
+      - name: Set up chart-testing
+        uses: helm/chart-testing-action@v2.7.0
+
+      - name: Run chart-testing (lint)
         if: steps.changed-charts-files.outputs.any_changed == 'true'
-        env:
-          ALL_CHANGED_FILES: ${{ steps.changed-charts-files.outputs.all_modified_files }}
-        run: |
-          for file in ${ALL_CHANGED_FILES}; do
-            echo "$file was changed"
-          done
+        run: ct lint --target-branch ${{ github.event.repository.default_branch }}
